@@ -1,0 +1,14 @@
+{
+  "name": "qr_scanner",
+  "version": "1.0.0",
+  "description": "This is a web app that scans QR codes from the webcam of the user",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Valentin Erokhin",
+  "license": "ISC",
+  "devDependencies": {
+    "jsqr": "^1.2.0"
+  }
+}

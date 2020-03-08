@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head calls the jsQR script -->
+
+ <head>
+ 	<meta charset=UTF-8>
+ 	<title>QR Scanner</title>
+ 	<script src="./node_modules/jsqr/dist/jsQR.js"></script>
+ </head>
+
+ <!-- Page body along with the main application script -->
+
+ <body>
+ 	<article class="scanner">
+ 		<header>
+ 			<h1>QR Scanner</h1>
+ 		</header>
+  	<div>
+ 	    <p>Show me a QR code to see some magic </p>
+ 	    <div id="loadingMessage"> Unable to access your webcam </div>
+ 	    <canvas id="canvas" hidden></canvas>
+ 	    <div id="output" hidden>
+ 	    	<div id="outputMessage">I don't see a QR code here</div>
+ 	    	<div hidden>Data: <span id="outputData"></span></div>
+ 	    	<div><a download="result.txt" id="downloadLink" style="display: none">Download me</a></div>
+ 		 </div>
+ 	 </div>
+ 	 <script type="module" src="index.js"></script>
+ 	</article>
+ </body>
+</html> 

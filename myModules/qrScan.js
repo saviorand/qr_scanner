@@ -1,3 +1,4 @@
+import dataFetcher from './dataFetcher.js';
 export default function qrScan(){
 
     // Store HTML elements from the page
@@ -60,17 +61,21 @@ export default function qrScan(){
           outputData.innerText = code.data;
           
           if (resultValue.includes(code.data) === false) {
-          	console.log([code.data]);
+          	
+            /*   
+
+            console.log([code.data]);
 
           	// Save unique results to file:
 
           	var myFile = null;
-          	writeToFile = function (result) {
+          	var writeToFile = function (result) {
           		var outputData = new Blob([result]);
 
           		if (myFile !== null){
           			window.URL.revokeObjectURL(myFile);
           		}
+
           		myFile = window.URL.createObjectURL(outputData);
           		return myFile;
           	};
@@ -79,9 +84,14 @@ export default function qrScan(){
 
           	textLink.href = writeToFile([code.data]);
           	textLink.style.display = 'block';
+            textLink.click();
 
-          }
+          } */
+          
+          dataFetcher([code.data]);
+}
           resultValue.push(code.data);
+        
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;

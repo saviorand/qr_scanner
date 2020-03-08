@@ -1,3 +1,3 @@
-import qrScan from './myModules/qrScan.js'
+import qrScan from './myModules/qrScan.js';
 
-qrScan()
+qrScan();

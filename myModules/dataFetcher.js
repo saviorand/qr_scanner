@@ -13,6 +13,12 @@ export default function dataFetcher(input){
 
     // Fill a coffee object based on our data
 
+    // Preserve original ID for later reference
+
+    coffee.id = parsedData.id;
+
+    // Check processing method
+
     switch (parsedData.process) {
 
     	case 'SEMI_WASHED':
@@ -32,6 +38,8 @@ export default function dataFetcher(input){
 
     };
 
+    // Check unit
+
     switch(parsedData.weight.unit) {
 
     	case 'BAG10KG':
@@ -50,9 +58,37 @@ export default function dataFetcher(input){
     	coffee.weight = undefined;
     	break;
 
-    }
+    };
 
+    // Check certificates
 
+    coffee.certificates = [];
+
+    for (let i=0; i < parsedData.certificates.length; i++){
+
+    switch(parsedData.certificates[i]){
+
+    	case 'Rainforest Alliance':
+    	coffee.certificates.push(CERTIFICATES[CERTIFICATES.indexOf('Rainforest Alliance')]);
+    	break;
+
+    	case '4C Sustainable Coffee Growing':
+    	coffee.certificates.push(CERTIFICATES[CERTIFICATES.indexOf('4C Sustainable Coffee Growing')]);
+    	break;
+
+    	case 'Organic BR (IBD)':
+    	coffee.certificates.push(CERTIFICATES[CERTIFICATES.indexOf('Organic BR (IBD)')]);
+    	break;
+
+    	case 'NTC 5400':
+    	coffee.certificates.push(CERTIFICATES[CERTIFICATES.indexOf('NTC 5400')]);
+    	break;
+
+    	default:
+    	break;
+    };
+
+    };
 
     var finalData = JSON.stringify(coffee);
 

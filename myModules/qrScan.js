@@ -59,35 +59,11 @@ export default function qrScan(){
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
+
+          // Use our dataFetcher function to process the data 
           
           if (resultValue.includes(code.data) === false) {
-          	
-            /*   
-
-            console.log([code.data]);
-
-          	// Save unique results to file:
-
-          	var myFile = null;
-          	var writeToFile = function (result) {
-          		var outputData = new Blob([result]);
-
-          		if (myFile !== null){
-          			window.URL.revokeObjectURL(myFile);
-          		}
-
-          		myFile = window.URL.createObjectURL(outputData);
-          		return myFile;
-          	};
-
-          	var textLink = document.getElementById('downloadLink');
-
-          	textLink.href = writeToFile([code.data]);
-          	textLink.style.display = 'block';
-            textLink.click();
-
-          } */
-          
+           
           dataFetcher([code.data]);
 }
           resultValue.push(code.data);
